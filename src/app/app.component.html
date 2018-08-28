@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+	<mat-toolbar-row>
+    <mat-icon>account_balance</mat-icon>
+		<span>Custom Menu Sample</span>
+	</mat-toolbar-row>
+</mat-toolbar>
+<dxc-menu [navItems]="sample" [leaveIconSpace]="true" [highlightActiveLink]="true"></dxc-menu>
+<router-outlet></router-outlet>
+<!-- <button (click)="addMenu()">Add Menu</button>
+<button (click)="addSubItem()">Add SubMenu</button> -->

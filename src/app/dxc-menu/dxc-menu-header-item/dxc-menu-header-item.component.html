@@ -1,0 +1,13 @@
+<ng-container *ngIf="item.children; else nosubmenu">
+	<a class="dxc-menu-main-nav main-nav-with-submenu" (click)="toggle()" [class.open]="show" [class.active]="isRouterActive(item)">
+		<mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon>
+		{{item.name}}
+	</a>
+	<dxc-menu-item [show]="show" (clickOutside)='closeMenu($event)' [highlightActiveLink]="highlightActiveLink" (clickLink)="toggle()" [navItems]="item.children" [leaveIconSpace]="leaveIconSpace"></dxc-menu-item>
+</ng-container>
+<ng-template #nosubmenu>
+  <a class="dxc-menu-main-nav" [routerLink]="item.link? item.link : null" [routerLinkActive]="(item.link && highlightActiveLink && !item.disabled)? 'active':''"  [class.disabled]="item.disabled" (click)="toggle()">
+		<mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon>
+		{{item.name}}
+	</a>
+</ng-template>

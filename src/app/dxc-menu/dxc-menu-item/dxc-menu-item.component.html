@@ -1,0 +1,31 @@
+<div class="dxc-menu-container">
+	<div class="nav-item-container" *ngFor="let item of navItems; let i = index">
+		<ng-container *ngIf="!item.divider; else divider">
+			<ng-container *ngIf="item.children; else nochild">
+				<a class="nav-item nav-item-with-submenu" [class.open]="shownav(i)" [class.active]="isRouterActive(item)"
+				 [class.disabled]="item.disabled" (mouseover)="toggleNav(i, item.disabled)">
+					<mat-icon *ngIf="item.icon; else noicon">{{item.icon}}</mat-icon>
+					<ng-template #noicon>
+						<div *ngIf="leaveIconSpace && hasIcon" class="noicon"></div>
+					</ng-template>
+					{{item.name}}
+				</a>
+				<dxc-menu-item [show]="shownav(i)" [highlightActiveLink]="highlightActiveLink" (clickLink)="onLinkClick($event, item.disabled)" [navItems]="item.children" [submenu]="true"
+				 [leaveIconSpace]="leaveIconSpace"></dxc-menu-item>
+			</ng-container>
+			<ng-template #nochild>
+				<a class="nav-item" [routerLink]="(item.link && !item.disabled)? item.link : null" [routerLinkActive]="(item.link && highlightActiveLink && !item.disabled)? 'active':''"
+				 [class.disabled]="item.disabled" (click)="onLinkClick($event, item.disabled)" (mouseover)="toggleNav(i, item.disabled)">
+					<mat-icon *ngIf="item.icon; else noicon">{{item.icon}}</mat-icon>
+					<ng-template #noicon>
+						<div *ngIf="leaveIconSpace && hasIcon" class="noicon"></div>
+					</ng-template>
+					{{item.name}}
+				</a>
+			</ng-template>
+		</ng-container>
+		<ng-template #divider>
+			<div class="divider"></div>
+		</ng-template>
+	</div>
+</div>

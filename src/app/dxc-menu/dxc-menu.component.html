@@ -1,0 +1,5 @@
+<nav class="dxc-menu">
+	<ng-container *ngFor="let item of navItems; let i = index">
+		<dxc-menu-header-item [item]="item" [leaveIconSpace]="leaveIconSpace" [highlightActiveLink]="highlightActiveLink"></dxc-menu-header-item>
+	</ng-container>
+</nav>

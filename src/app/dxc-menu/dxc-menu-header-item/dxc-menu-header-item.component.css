@@ -1,0 +1,50 @@
+:host{
+  position: relative;
+}
+.dxc-menu-main-nav{
+  cursor: pointer;
+  display: block;
+  padding: 0 12px; 
+  background-color: #353535;
+  color: #FFF;
+  margin:0;
+  line-height: 48px;
+  font-size: 14px;
+  text-transform: capitalize;
+  min-width: 60px;
+  text-align: center;
+  text-decoration: none;
+}
+.dxc-menu-main-nav.main-nav-with-submenu{
+  padding-right: 30px;
+}
+
+.dxc-menu-main-nav.main-nav-with-submenu::after {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 5px 0px 5px;
+    border-color: currentColor transparent transparent transparent;
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+}
+
+.dxc-menu-main-nav.disabled{
+  color: #666;
+  pointer-events: none;
+}
+.dxc-menu-main-nav:not(.disabled):not(.active):hover,.dxc-menu-main-nav.open{
+  background-color: #292929;
+}
+.dxc-menu-main-nav.active{
+  background-color: #0C66A1;
+}
+
+.dxc-menu-main-nav .mat-icon{
+  vertical-align: middle;
+  margin-right: 12px;
+}

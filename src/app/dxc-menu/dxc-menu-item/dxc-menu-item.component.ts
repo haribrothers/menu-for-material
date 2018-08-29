@@ -55,7 +55,6 @@ export class DxcMenuItemComponent implements OnInit {
   public currentSubNav: number = -1;
 
   @HostListener('document:click', ['$event.target'])
-  @HostListener('document:touchstart', ['$event.target'])
   public onClick(targetElement) {
     const clickedInside = this._elementRef.nativeElement.contains(targetElement);
     if (!clickedInside) {
